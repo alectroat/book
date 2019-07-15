@@ -1,0 +1,116 @@
+<m-portlet [options]="{headLarge: true, enableSticky: true}" [loading$]="loading$">
+	<ng-container mPortletHeadTitle>
+		<div class="m-portlet__head-title">
+			<h3 class="m-portlet__head-text">
+				{{ getComponentTitle() }}
+			</h3>
+		</div>
+	</ng-container>
+	<ng-container mPortletHeadTools>
+		<button mat-raised-button (click)="reset()" [disabled]="selectedTab !== 0" matTooltip="Reset changes">Reset</button>&nbsp;
+		<div class="m-buttons--wrapper">
+			<button type="button" (click)="onSumbit(false)" mat-raised-button color="primary" matTooltip="Save & Continue">Save</button>
+		</div>
+	</ng-container>
+	<ng-container mPortletBody>
+		<form>
+
+			<mat-tab-group>
+				<mat-tab label="Overview">
+					<div class="card">
+						<div class="card-header c-h-bg_color">
+							Existing occasions
+						</div>
+						<div class="card-body">
+							<overview-table></overview-table>
+						</div>						
+					</div>
+					
+				</mat-tab>
+				<mat-tab label="Create new occasion">
+					Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table
+					craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl
+					cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia
+					yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean
+					shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero
+					sint qui sapiente accusamus tattooed echo park.
+				</mat-tab>
+				<mat-tab label="Calender">
+					Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth
+					master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh
+					dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum
+					iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
+				</mat-tab>
+				<mat-tab label="List">
+					Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth
+					master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh
+					dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum
+					iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
+				</mat-tab>
+				<mat-tab label="Batch mode">
+					Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth
+					master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh
+					dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum
+					iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
+				</mat-tab>
+			</mat-tab-group>			
+
+			<!--<div class="f-mg-bm-gp">
+				<label class="form-control-label">Name:</label>
+				<label class="form-control-label">*</label>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Name</span>
+					</div>
+					<input type="text" class="form-control" placeholder="">
+				</div>
+			</div>
+
+			<div class="f-mg-bm-gp">
+				<label class="form-control-label">Introduction:</label>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Introduction</span>
+					</div>
+					<textarea class="form-control" rows="5"></textarea>
+				</div>
+			</div>
+
+			<div class="f-mg-bm-gp">
+				<label class="form-control-label">Description:</label>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Description</span>
+					</div>
+					<textarea class="form-control" rows="5"></textarea>
+				</div>
+			</div>
+
+			<div class="f-mg-bm-gp">
+				<label class="form-control-label">Unique Selling Points:</label>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Unique selling point 1</span>
+					</div>
+					<input type="text" class="form-control" placeholder="">
+				</div>
+				<div class="input-group mb-3" style="margin-top:-14px;">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Unique selling point 2</span>
+					</div>
+					<input type="text" class="form-control" placeholder="">
+				</div>
+				<div class="input-group mb-3" style="margin-top:-14px;">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Unique selling point 3</span>
+					</div>
+					<input type="text" class="form-control" placeholder="">
+				</div>
+			</div>-->
+
+		</form>
+	</ng-container>
+</m-portlet>
+
+
+

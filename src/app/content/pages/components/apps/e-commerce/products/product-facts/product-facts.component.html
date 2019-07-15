@@ -1,0 +1,287 @@
+<m-portlet [options]="{headLarge: true, enableSticky: true}" [loading$]="loading$">
+	<ng-container mPortletHeadTitle>
+		<div class="m-portlet__head-title">
+			<h3 class="m-portlet__head-text">
+				{{ getComponentTitle() }}
+			</h3>
+		</div>
+	</ng-container>
+	<ng-container mPortletHeadTools>
+		<button mat-raised-button (click)="reset()" [disabled]="selectedTab !== 0" matTooltip="Reset changes">Reset</button>&nbsp;
+		<div class="m-buttons--wrapper">
+			<button type="button" (click)="onSumbit(false)" mat-raised-button color="primary" matTooltip="Save & Continue">Save</button>
+		</div>
+	</ng-container>
+	<ng-container mPortletBody>
+		<form>
+			<div class="f-mg-bm-gp">
+				<label class="form-control-label"> {{pageControlLists.effortLevel.title}} </label>
+				<div class="input-group mb-3">
+					<div class="container">
+						<div class="row">
+							<div class="col-xl-4 col-lg-4" *ngFor="let item of pageControlLists.effortLevel.items">
+								<label class="m-checkbox m-checkbox--solid m-checkbox--brand">
+									<input checked="{{item.isChecked}}" type="checkbox" name="account_communication[]" value="email"> {{item.itemName}}
+									<span></span>
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="f-mg-bm-gp p-ib-mr_btn">
+				<label class="form-control-label">Duration:</label>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Duration</span>
+					</div>
+					<input type="text" class="form-control" placeholder="">
+				</div>
+			</div>
+
+			<div class="f-mg-bm-gp p-ib-mr_btn">
+				<label class="form-control-label"> {{pageControlLists.guidedIn.title}} </label>
+				<div class="input-group mb-3">
+					<div class="container">
+						<div class="row">
+							<div class="col-xl-4 col-lg-4" *ngFor="let item of pageControlLists.guidedIn.items">
+								<label class="m-checkbox m-checkbox--solid m-checkbox--brand">
+									<input checked="{{item.isChecked}}" type="checkbox" name="account_communication[]" value="email"> {{item.itemName}}
+									<span></span>
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="f-mg-bm-gp p-ib-mr_btn">
+				<label class="form-control-label"> {{pageControlLists.mealsIncluded.title}} </label>
+				<div class="input-group mb-3">
+					<div class="container">
+						<div class="row">
+							<div class="col-xl-4 col-lg-4" *ngFor="let item of pageControlLists.mealsIncluded.items">
+								<label class="m-checkbox m-checkbox--solid m-checkbox--brand">
+									<input checked="{{item.isChecked}}" type="checkbox" name="account_communication[]" value="email"> {{item.itemName}}
+									<span></span>
+								</label>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="f-mg-bm-gp p-ib-mr_btn">
+				<label class="form-control-label"> {{pageControlLists.clothingGearIncluded.title}} </label>
+				<div class="input-group mb-3">
+					<div class="container">
+						<div class="row">
+							<div class="col-xl-4 col-lg-4" *ngFor="let item of pageControlLists.clothingGearIncluded.items">
+								<label class="m-checkbox m-checkbox--solid m-checkbox--brand">
+									<input checked="{{item.isChecked}}" type="checkbox" name="account_communication[]" value="email"> {{item.itemName}}
+									<span></span>
+								</label>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="f-mg-bm-gp p-ib-mr_btn">
+				<label class="form-control-label"> {{pageControlLists.suitableForKids.title}} </label>
+				<div class="input-group mb-3">
+					<div class="container">
+						<div class="row">
+							<div class="col-xl-4 col-lg-4" *ngFor="let item of pageControlLists.suitableForKids.items">
+								<label class="m-checkbox m-checkbox--solid m-checkbox--brand">
+									<input checked="{{item.isChecked}}" type="checkbox" name="account_communication[]" value="email"> {{item.itemName}}
+									<span></span>
+								</label>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="f-mg-bm-gp p-ib-mr_btn">
+				<label class="form-control-label"> {{pageControlLists.canceledInBadWeather.title}} </label>
+				<div class="input-group mb-3">
+					<div class="container">
+						<div class="row">
+							<div class="col-xl-4 col-lg-4" *ngFor="let item of pageControlLists.canceledInBadWeather.items">
+								<label class="m-checkbox m-checkbox--solid m-checkbox--brand">
+									<input checked="{{item.isChecked}}" type="checkbox" name="account_communication[]" value="email"> {{item.itemName}}
+									<span></span>
+								</label>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+
+			<div class="f-mg-bm-gp p-ib-mr_btn">
+				<label class="form-control-label"> {{pageControlLists.AgeLimit.title}}:</label>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label"> {{pageControlLists.AgeLimit.title}}</span>
+					</div>
+					<select class="form-control">
+						<option *ngFor="let item of pageControlLists.AgeLimit.items"
+								[value]="item.age"
+								[attr.selected]="item.isChecked==true ? true : null">
+							{{item.age}}
+						</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="f-mg-bm-gp p-ib-mr_btn">
+				<label class="form-control-label">What is included:</label>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">What is included</span>
+					</div>
+					<textarea class="form-control" rows="5"></textarea>
+				</div>
+			</div>
+
+			<div class="f-mg-bm-gp p-ib-mr_btn">
+				<label class="form-control-label">
+					What is not included:
+				</label>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">What is not included</span>
+					</div>
+					<textarea class="form-control" rows="5"></textarea>
+				</div>
+			</div>
+
+			<div class="f-mg-bm-gp p-ib-mr_btn">
+				<label class="form-control-label">What to bring:</label>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">What to bring</span>
+					</div>
+					<textarea class="form-control" rows="5"></textarea>
+				</div>
+			</div>
+
+			<div class="f-mg-bm-gp p-ib-mr_btn">
+				<label class="form-control-label">Requirements:</label>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Requirements</span>
+					</div>
+					<textarea class="form-control" rows="5"></textarea>
+				</div>
+			</div>
+
+			<div class="f-mg-bm-gp p-ib-mr_btn">
+				<label class="form-control-label">Opening hours:</label>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Opening hours</span>
+					</div>
+					<textarea class="form-control" rows="5"></textarea>
+				</div>
+			</div>
+
+			<div class="f-mg-bm-gp p-ib-mr_btn">
+				<label class="form-control-label">Attention:</label>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Attention</span>
+					</div>
+					<textarea class="form-control" rows="5"></textarea>
+				</div>
+			</div>
+
+			<div class="f-mg-bm-gp p-ib-mr_btn">
+				<label class="form-control-label"> {{pageControlLists.ThemesBokun.title}} </label>
+				<div class="input-group mb-3">
+					<div class="container">
+						<div class="row">
+							<div class="col-xl-4 col-lg-4" *ngFor="let item of pageControlLists.ThemesBokun.items">
+								<label class="m-checkbox m-checkbox--solid m-checkbox--brand">
+									<input checked="{{item.isChecked}}" type="checkbox" name="account_communication[]" value="email"> {{item.itemName}}
+									<span></span>
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="f-mg-bm-gp p-ib-mr_btn">
+				<label class="form-control-label"> {{pageControlLists.Inclusions.title}} </label>
+				<div class="input-group mb-3">
+					<div class="container">
+						<div class="row">
+							<div class="col-xl-4 col-lg-4" *ngFor="let item of pageControlLists.Inclusions.items">
+								<label class="m-checkbox m-checkbox--solid m-checkbox--brand">
+									<input checked="{{item.isChecked}}" type="checkbox" name="account_communication[]" value="email"> {{item.itemName}}
+									<span></span>
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--<div class="m-form__section">
+		<div class="m-form__heading">
+			<h3 class="m-form__heading-title">Client Settings</h3>
+		</div>
+		<div class="form-group m-form__group row">
+			<div class="col-lg-6 m-form__group-sub">
+				<label class="form-control-label">* User Group:</label>
+				<div class="m-radio-inline">
+					<label class="m-radio m-radio--solid m-radio--brand">
+						<input type="radio" name="account_group" checked="" value="2"> Sales Person
+						<span></span>
+					</label>
+					<label class="m-radio m-radio--solid m-radio--brand">
+						<input type="radio" name="account_group" value="2"> Customer
+						<span></span>
+					</label>
+				</div>
+				<span class="m-form__help">Please select user group</span>
+			</div>
+			<div class="col-lg-6 m-form__group-sub">
+				<label class="form-control-label">* Communications:</label>
+				<div class="m-checkbox-inline">
+					<label class="m-checkbox m-checkbox--solid m-checkbox--brand">
+						<input type="checkbox" name="account_communication[]" checked value="email"> Email
+						<span></span>
+					</label>
+					<label class="m-checkbox m-checkbox--solid  m-checkbox--brand">
+						<input type="checkbox" name="account_communication[]" value="sms"> SMS
+						<span></span>
+					</label>
+					<label class="m-checkbox m-checkbox--solid  m-checkbox--brand">
+						<input type="checkbox" name="account_communication[]" value="phone"> Phone
+						<span></span>
+					</label>
+				</div>
+				<span class="m-form__help">Please select user communication options</span>
+			</div>
+		</div>
+	</div>-->
+
+		</form>
+	</ng-container>
+</m-portlet>
+
+
+
+
+
+
+

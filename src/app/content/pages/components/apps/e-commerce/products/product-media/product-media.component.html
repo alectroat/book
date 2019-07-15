@@ -1,0 +1,331 @@
+<m-portlet [options]="{headLarge: true, enableSticky: true}" [loading$]="loading$">
+	<ng-container mPortletHeadTitle>
+		<div class="m-portlet__head-title">
+			<h3 class="m-portlet__head-text">
+				{{ getComponentTitle() }}
+			</h3>
+		</div>
+	</ng-container>
+	<ng-container mPortletHeadTools>
+		<button mat-raised-button (click)="reset()" [disabled]="selectedTab !== 0" matTooltip="Reset changes">Reset</button>&nbsp;
+		<div class="m-buttons--wrapper">
+			<button type="button" (click)="onSumbit(false)" mat-raised-button color="primary" matTooltip="Save & Continue">Save</button>
+		</div>
+	</ng-container>
+	<ng-container mPortletBody>
+
+		<div class="alert alert-info" role="alert">
+			Max. size on images is 10 MB. The picture will be converted to JPG and will loose any transparency if needed.
+		</div>
+
+		<div class="card" style="background-color:antiquewhite">
+			<div class="card-body">
+				<div class="container">
+					<div class="row">
+						<div class="col-xl-6 col-lg-6">
+							<div class="card text-center">
+								<div class="card-header">
+									Uploaded image
+								</div>
+								<div class="card-body">
+									<img src="https://homepages.cae.wisc.edu/~ece533/images/fruits.png" alt="Smiley face" width="250" height="250">
+									<input type="file" name="fileToUpload" class="f-u-m-t10" id="fileToUpload">
+									<!--<input type="submit" value="Upload Image" name="submit">-->
+								</div>
+							</div>
+						</div>
+
+
+						<div class="col-xl-6 col-lg-6">
+							<div class="f-mg-bm-gp-n">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text col-form-label b-w_lbl">Is main image</span>
+									</div>
+									<label class="m-checkbox m-checkbox--solid m-checkbox--brand">
+										<input checked="true" type="checkbox" name="account_communication[]" value="email">
+										<span class="m-ck-t-l"></span>
+									</label>
+								</div>
+							</div>
+
+							<div class="f-mg-bm-gp-n">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text col-form-label b-w_lbl">Name</span>
+									</div>
+									<input type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+							<div class="f-mg-bm-gp-n">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text col-form-label b-w_lbl">Description</span>
+									</div>
+									<input type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+							<div class="f-mg-bm-gp-n">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text col-form-label b-w_lbl">Keywords</span>
+									</div>
+									<input type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+							<div class="f-mg-bm-gp-n">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text col-form-label b-w_lbl">CopyrightBy</span>
+									</div>
+									<input type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+							<div class="f-mg-bm-gp-n">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text col-form-label b-w_lbl">ProducedBy</span>
+									</div>
+									<input type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="card p-ib-mr_btn" style="background-color:antiquewhite">
+			<div class="card-body">
+				<div class="container">
+					<div class="row">
+						<div class="col-xl-6 col-lg-6">
+							<div class="card text-center">
+								<div class="card-header">
+									Uploaded image
+								</div>
+								<div class="card-body">
+									<img src="https://homepages.cae.wisc.edu/~ece533/images/fruits.png" alt="Smiley face" width="250" height="250">
+									
+								</div>
+							</div>
+						</div>
+
+
+						<div class="col-xl-6 col-lg-6">
+							<div class="f-mg-bm-gp-n">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text col-form-label b-w_lbl">Is main image</span>
+									</div>
+									<label class="m-checkbox m-checkbox--solid m-checkbox--brand">
+										<input checked="true" type="checkbox" name="account_communication[]" value="email">
+										<span class="m-ck-t-l"></span>
+									</label>
+								</div>
+							</div>
+
+							<div class="f-mg-bm-gp-n">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text col-form-label b-w_lbl">Name</span>
+									</div>
+									<input type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+							<div class="f-mg-bm-gp-n">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text col-form-label b-w_lbl">Description</span>
+									</div>
+									<input type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+							<div class="f-mg-bm-gp-n">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text col-form-label b-w_lbl">Keywords</span>
+									</div>
+									<input type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+							<div class="f-mg-bm-gp-n">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text col-form-label b-w_lbl">CopyrightBy</span>
+									</div>
+									<input type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+							<div class="f-mg-bm-gp-n">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text col-form-label b-w_lbl">ProducedBy</span>
+									</div>
+									<input type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="card p-ib-mr_btn" style="background-color:antiquewhite">
+			<div class="card-body">
+				<div class="container">
+					<div class="row">
+						<div class="col-xl-6 col-lg-6">
+							<div class="card text-center">
+								<div class="card-header">
+									Uploaded image
+								</div>
+								<div class="card-body">
+									<img src="https://homepages.cae.wisc.edu/~ece533/images/fruits.png" alt="Smiley face" width="250" height="250">
+									
+								</div>
+							</div>
+						</div>
+
+
+						<div class="col-xl-6 col-lg-6">
+							<div class="f-mg-bm-gp-n">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text col-form-label b-w_lbl">Is main image</span>
+									</div>
+									<label class="m-checkbox m-checkbox--solid m-checkbox--brand">
+										<input checked="true" type="checkbox" name="account_communication[]" value="email">
+										<span class="m-ck-t-l"></span>
+									</label>
+								</div>
+							</div>
+
+							<div class="f-mg-bm-gp-n">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text col-form-label b-w_lbl">Name</span>
+									</div>
+									<input type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+							<div class="f-mg-bm-gp-n">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text col-form-label b-w_lbl">Description</span>
+									</div>
+									<input type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+							<div class="f-mg-bm-gp-n">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text col-form-label b-w_lbl">Keywords</span>
+									</div>
+									<input type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+							<div class="f-mg-bm-gp-n">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text col-form-label b-w_lbl">CopyrightBy</span>
+									</div>
+									<input type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+							<div class="f-mg-bm-gp-n">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text col-form-label b-w_lbl">ProducedBy</span>
+									</div>
+									<input type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="card p-ib-mr_btn" style="background-color:antiquewhite">
+			<div class="card-body">
+				<div class="container">
+					<div class="row">
+						<div class="col-xl-6 col-lg-6">
+							<div class="card text-center">
+								<div class="card-header">
+									Uploaded image
+								</div>
+								<div class="card-body">
+									<img src="https://homepages.cae.wisc.edu/~ece533/images/fruits.png" alt="Smiley face" width="250" height="250">
+									
+								</div>
+							</div>
+						</div>
+
+
+						<div class="col-xl-6 col-lg-6">
+							<div class="f-mg-bm-gp-n">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text col-form-label b-w_lbl">Is main image</span>
+									</div>
+									<label class="m-checkbox m-checkbox--solid m-checkbox--brand">
+										<input checked="true" type="checkbox" name="account_communication[]" value="email">
+										<span class="m-ck-t-l"></span>
+									</label>
+								</div>
+							</div>
+
+							<div class="f-mg-bm-gp-n">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text col-form-label b-w_lbl">Name</span>
+									</div>
+									<input type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+							<div class="f-mg-bm-gp-n">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text col-form-label b-w_lbl">Description</span>
+									</div>
+									<input type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+							<div class="f-mg-bm-gp-n">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text col-form-label b-w_lbl">Keywords</span>
+									</div>
+									<input type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+							<div class="f-mg-bm-gp-n">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text col-form-label b-w_lbl">CopyrightBy</span>
+									</div>
+									<input type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+							<div class="f-mg-bm-gp-n">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text col-form-label b-w_lbl">ProducedBy</span>
+									</div>
+									<input type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<form></form>
+	</ng-container>
+</m-portlet>
+
+
+

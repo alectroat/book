@@ -1,0 +1,140 @@
+<m-portlet [options]="{headLarge: true, enableSticky: true}" [loading$]="loading$">
+	<ng-container mPortletHeadTitle>
+		<div class="m-portlet__head-title">
+			<h3 class="m-portlet__head-text">
+				{{ getComponentTitle() }}
+			</h3>
+		</div>
+	</ng-container>
+	<ng-container mPortletHeadTools>
+		<button mat-raised-button (click)="reset()" [disabled]="selectedTab !== 0" matTooltip="Reset changes">Reset</button>&nbsp;
+		<div class="m-buttons--wrapper">
+			<button type="button" (click)="onSumbit(false)" mat-raised-button color="primary" matTooltip="Save & Continue">Save</button>
+		</div>
+	</ng-container>
+	<ng-container mPortletBody>
+		<form>
+
+			<div class="f-mg-bm-gp">
+				<label class="form-control-label">Supplier name:</label>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Supplier name</span>
+					</div>
+					<textarea class="form-control" rows="5"></textarea>
+				</div>
+			</div>
+
+			<div class="f-mg-bm-gp">
+				<label class="form-control-label">Address:</label>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Street address 1</span>
+					</div>
+					<input type="text" class="form-control" placeholder="">
+				</div>
+				<div class="input-group mb-3" style="margin-top:-14px;">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Street address 2</span>
+					</div>
+					<input type="text" class="form-control" placeholder="">
+				</div>
+				<div class="input-group mb-3" style="margin-top:-14px;">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Postal code</span>
+					</div>
+					<input type="text" class="form-control" placeholder="">
+				</div>
+				<div class="input-group mb-3" style="margin-top:-14px;">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">City (address)</span>
+					</div>
+					<input type="text" class="form-control" placeholder="">
+				</div>
+				<div class="input-group mb-3" style="margin-top:-14px;">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Country (address)</span>
+					</div>
+					<input type="text" class="form-control" placeholder="">
+				</div>
+			</div>
+
+			<div class="f-mg-bm-gp">
+				<label class="form-control-label">Phone number:</label>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Country code (Phone number)</span>
+					</div>
+					<input type="text" class="form-control" placeholder="">
+				</div>
+				<div class="input-group mb-3" style="margin-top:-14px;">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Phone number</span>
+					</div>
+					<input type="text" class="form-control" placeholder="">
+				</div>
+			</div>
+
+			<div class="f-mg-bm-gp">
+				<label class="form-control-label">Phone number (bookning):</label>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Country code (booking)</span>
+					</div>
+					<input type="text" class="form-control" placeholder="">
+				</div>
+				<div class="input-group mb-3" style="margin-top:-14px;">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Phone number (booking)</span>
+					</div>
+					<input type="text" class="form-control" placeholder="">
+				</div>
+			</div>
+
+			<div class="f-mg-bm-gp">
+				<label class="form-control-label">Contact person email:</label>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Contact person email</span>
+					</div>
+					<input type="text" class="form-control" placeholder="">
+				</div>
+			</div>
+
+			<div class="f-mg-bm-gp">
+				<label class="form-control-label">Contact person:</label>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">E-mail (Organizer)</span>
+					</div>
+					<input type="text" class="form-control" placeholder="">
+				</div>
+			</div>
+
+			<div class="f-mg-bm-gp">
+				<label class="form-control-label">Contact person notes:</label>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Contact person notes</span>
+					</div>
+					<textarea class="form-control" rows="5"></textarea>
+				</div>
+			</div>
+
+			<div class="f-mg-bm-gp">
+				<label class="form-control-label">Website:</label>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Website</span>
+					</div>
+					<input type="text" class="form-control" placeholder="">
+				</div>
+			</div>
+
+
+		</form>
+	</ng-container>
+</m-portlet>
+
+
+

@@ -1,0 +1,235 @@
+<m-portlet [options]="{headLarge: true, enableSticky: true}" [loading$]="loading$">
+	<ng-container mPortletHeadTitle>
+		<div class="m-portlet__head-title">
+			<h3 class="m-portlet__head-text">
+				{{ getComponentTitle() }}
+			</h3>
+		</div>
+	</ng-container>
+	<ng-container mPortletHeadTools>
+		<button mat-raised-button (click)="reset()" [disabled]="selectedTab !== 0" matTooltip="Reset changes">Reset</button>&nbsp;
+		<div class="m-buttons--wrapper">
+			<button type="button" (click)="onSumbit(false)" mat-raised-button color="primary" matTooltip="Save & Continue">Save</button>
+		</div>
+	</ng-container>
+	<ng-container mPortletBody>
+		<form>
+
+
+			<!--<div class="f-mg-bm-gp">
+		<label class="form-control-label">Name:</label>
+		<label class="form-control-label">*</label>
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text col-form-label">Name</span>
+			</div>
+			<input type="text" class="form-control" placeholder="">
+		</div>
+	</div>-->
+
+
+
+			<div class="f-mg-bm-gp">
+				<label class="form-control-label">Price from:</label>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Price From Translatable</span>
+					</div>
+					<input type="text" class="form-control" placeholder="">
+				</div>
+				<div class="input-group mb-3" style="margin-top:-14px;">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Currency</span>
+					</div>
+					<input type="text" class="form-control" placeholder="">
+				</div>
+				<div class="input-group mb-3" style="margin-top:-14px;">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Price description</span>
+					</div>
+					<input type="text" class="form-control" placeholder="">
+				</div>
+			</div>
+
+			<div class="f-mg-bm-gp">
+				<label class="form-control-label">Price information:</label>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Price information</span>
+					</div>
+					<textarea class="form-control" rows="5"></textarea>
+				</div>
+			</div>
+
+			<div class="f-mg-bm-gp">
+				<label class="form-control-label">Cancellation policy:</label>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Cancellation policy</span>
+					</div>
+					<textarea class="form-control" rows="5"></textarea>
+				</div>
+			</div>
+
+
+			<!--<div class="f-mg-bm-gp">
+		<span>
+			<span class="f-spn-fnt">Name:</span>
+			<span class="cbisRequired">*</span>
+		</span>
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text">Name</span>
+			</div>
+			<input type="text" class="form-control" placeholder="">
+		</div>
+	</div>
+
+	<div class="f-mg-bm-gp">
+		<span class="f-spn-fnt">Introduction:</span>
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text">Introduction</span>
+			</div>
+			<textarea class="form-control" rows="5"></textarea>
+		</div>
+	</div>
+
+	<div class="f-mg-bm-gp">
+		<span class="f-spn-fnt">Description:</span>
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text">Description</span>
+			</div>
+			<textarea class="form-control" rows="5"></textarea>
+		</div>
+	</div>
+
+	<div class="f-mg-bm-gp-40">
+		<span>
+			<span class="f-spn-fnt">Unique Selling Points:</span>
+		</span>
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text">Unique selling point 1</span>
+			</div>
+			<input type="text" class="form-control" placeholder="">
+		</div>
+		<div class="input-group mb-3" style="margin-top:-14px;">
+			<div class="input-group-prepend">
+				<span class="input-group-text">Unique selling point 2</span>
+			</div>
+			<input type="text" class="form-control" placeholder="">
+		</div>
+		<div class="input-group mb-3" style="margin-top:-14px;">
+			<div class="input-group-prepend">
+				<span class="input-group-text">Unique selling point 3</span>
+			</div>
+			<input type="text" class="form-control" placeholder="">
+		</div>
+	</div>-->
+		</form>
+	</ng-container>
+</m-portlet>
+
+
+<!--<div class="container">
+	<div class="row">
+		<div class="col-xl-3 col-lg-4">
+			<div class="m-portlet m-portlet--full-height m-h__auto">
+				<div class="m-portlet__body">
+					<ul class="m-nav m-nav--hover-bg m-portlet-fit--sides m-ul__b_tb">
+						<li class="m-nav__item mi-b__border" *ngFor="let items of leftMenuItems">
+							<a *ngIf="items.id" [routerLink]="[items.link]" [queryParams]="{ id: items.id }" routerLinkActive="active" class="m-nav__link">
+
+								<span class="m-nav__link-text">{{items.title}}</span>
+							</a>
+							<a *ngIf="!items.id" [routerLink]="[items.link]" routerLinkActive="active" class="m-nav__link">
+
+								<span class="m-nav__link-text">{{items.title}}</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-xl-9 col-lg-8">
+			<m-portlet [options]="{headLarge: true, enableSticky: true}" [loading$]="loading$">
+
+				<ng-container mPortletHeadTitle>
+					<div class="m-portlet__head-title">
+						<h3 class="m-portlet__head-text">
+							{{ getComponentTitle() }}
+						</h3>
+					</div>
+				</ng-container>
+				<ng-container mPortletHeadTools>
+					<button mat-raised-button (click)="reset()" [disabled]="selectedTab !== 0" matTooltip="Reset changes">Reset</button>&nbsp;
+					<div class="m-buttons--wrapper">
+						<button type="button" (click)="onSumbit(false)" mat-raised-button color="primary" matTooltip="Save & Continue">Save</button>
+					</div>
+				</ng-container>
+				<ng-container mPortletBody>
+					<form>
+						<div class="f-mg-bm-gp">
+							<span>
+								<span class="f-spn-fnt">Name:</span>
+								<span class="cbisRequired">*</span>
+							</span>
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Name</span>
+								</div>
+								<input type="text" class="form-control" placeholder="">
+							</div>
+						</div>
+
+						<div class="f-mg-bm-gp">
+							<span class="f-spn-fnt">Introduction:</span>
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Introduction</span>
+								</div>
+								<textarea class="form-control" rows="5"></textarea>
+							</div>
+						</div>
+
+						<div class="f-mg-bm-gp">
+							<span class="f-spn-fnt">Description:</span>
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Description</span>
+								</div>
+								<textarea class="form-control" rows="5"></textarea>
+							</div>
+						</div>
+
+						<div class="f-mg-bm-gp-40">
+							<span>
+								<span class="f-spn-fnt">Unique Selling Points:</span>
+							</span>
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Unique selling point 1</span>
+								</div>
+								<input type="text" class="form-control" placeholder="">
+							</div>
+							<div class="input-group mb-3" style="margin-top:-14px;">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Unique selling point 2</span>
+								</div>
+								<input type="text" class="form-control" placeholder="">
+							</div>
+							<div class="input-group mb-3" style="margin-top:-14px;">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Unique selling point 3</span>
+								</div>
+								<input type="text" class="form-control" placeholder="">
+							</div>
+						</div>
+					</form>
+				</ng-container>
+			</m-portlet>
+		</div>
+	</div>
+</div>-->

@@ -1,0 +1,88 @@
+<m-portlet [options]="{headLarge: true, enableSticky: true}" [loading$]="loading$">
+	<ng-container mPortletHeadTitle>
+		<div class="m-portlet__head-title">
+			<h3 class="m-portlet__head-text">
+				{{ getComponentTitle() }}
+			</h3>
+		</div>
+	</ng-container>
+	<ng-container mPortletHeadTools>
+		<button mat-raised-button (click)="reset()" [disabled]="selectedTab !== 0" matTooltip="Reset changes">Reset</button>&nbsp;
+		<div class="m-buttons--wrapper">
+			<button type="button" (click)="onSumbit(false)" mat-raised-button color="primary" matTooltip="Save & Continue">Save</button>
+		</div>
+	</ng-container>
+	<ng-container mPortletBody>
+		<form>
+			<div class="f-mg-bm-gp">
+				<label class="form-control-label">Closest airport:</label>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Closest airport</span>
+					</div>
+					<input type="text" class="form-control" placeholder="">
+				</div>
+			</div>
+
+			<div class="f-mg-bm-gp">
+				<label class="form-control-label">Meeting point:</label>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Meeting point</span>
+					</div>
+					<input type="text" class="form-control" placeholder="">
+				</div>
+			</div>
+
+			<!--<div class="f-mg-bm-gp">
+				<label class="form-control-label">Introduction:</label>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Introduction</span>
+					</div>
+					<textarea class="form-control" rows="5"></textarea>
+				</div>
+			</div>-->
+
+
+
+			<div class="f-mg-bm-gp">
+				<label class="form-control-label">Position on map:</label>
+				<agm-map [latitude]="lat" [longitude]="lng">
+					<agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+				</agm-map>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Latitude</span>
+					</div>
+					<input type="text" class="form-control" placeholder="">
+				</div>
+				<div class="input-group mb-3" style="margin-top:-14px;">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Longitude</span>
+					</div>
+					<input type="text" class="form-control" placeholder="">
+				</div>
+				<div class="input-group mb-3" style="margin-top:-14px;">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Zoom level</span>
+					</div>
+					<input type="text" class="form-control" placeholder="">
+				</div>
+			</div>
+
+			<div class="f-mg-bm-gp">
+				<label class="form-control-label">Directions:</label>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text col-form-label">Directions</span>
+					</div>
+					<textarea class="form-control" rows="5"></textarea>
+				</div>
+			</div>
+		</form>
+	</ng-container>
+</m-portlet>
+
+
+
